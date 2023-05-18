@@ -47,8 +47,8 @@ Testing card，Named Tuple can be used to construct simple classes with no metho
 
 #+begin_src python :session card :results value
   from random import choice
-  choice(deck), deck[:2]
+  choice(deck), deck[:2], deck[12::13]
 #+end_src
 
 #+RESULTS:
-| Card | (rank= K suit= diamonds) | (Card (rank= 2 suit= spades) Card (rank= 3 suit= spades)) |
+| Card | (rank= 6 suit= clubs) | (Card (rank= 2 suit= spades) Card (rank= 3 suit= spades)) | (Card (rank= A suit= spades) Card (rank= A suit= diamonds) Card (rank= A suit= clubs) Card (rank= A suit= hearts)) |

@@ -29,7 +29,7 @@
 
 Testing card，Named Tuple can be used to construct simple classes with no methods
 
-#+begin_src python :session card :results value
+#+begin_src python :session card :results value :exports both
   beer_card = Card('7', 'diamonds')
   beer_card
 #+end_src
@@ -37,7 +37,7 @@ Testing card，Named Tuple can be used to construct simple classes with no metho
 #+RESULTS:
 : Card(rank='7', suit='diamonds')
 
-#+begin_src python :session card :results value
+#+begin_src python :session card :results value :exports both
   deck = FrechDeck()
   len(deck)
 #+end_src
@@ -45,10 +45,10 @@ Testing card，Named Tuple can be used to construct simple classes with no metho
 #+RESULTS:
 : 52
 
-#+begin_src python :session card :results value
+#+begin_src python :session card :results value :exports both
   from random import choice
   choice(deck), deck[:2], deck[12::13]
 #+end_src
 
 #+RESULTS:
-| Card | (rank= 6 suit= clubs) | (Card (rank= 2 suit= spades) Card (rank= 3 suit= spades)) | (Card (rank= A suit= spades) Card (rank= A suit= diamonds) Card (rank= A suit= clubs) Card (rank= A suit= hearts)) |
+| Card | (rank= 10 suit= spades) | (Card (rank= 2 suit= spades) Card (rank= 3 suit= spades)) | (Card (rank= A suit= spades) Card (rank= A suit= diamonds) Card (rank= A suit= clubs) Card (rank= A suit= hearts)) |

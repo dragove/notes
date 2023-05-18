@@ -1,0 +1,54 @@
+#+title: Fluent Python Notes
+#+author: dragove
+
+* Part I Data Structures
+** Chapter 1 The Python Data Model
+*** A Pythonic Card Deck
+**** Example 1-1 A deck as a sequence of playing cards
+#+begin_src python :session card :results silent
+  import collections
+
+  Card = collections.namedtuple('Card', ['rank', 'suit'])
+
+  class FrechDeck:
+      ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+      suits = 'spades diamonds clubs hearts'.split()
+
+      def __init__(self):
+          self._cards = [Card(rank, suit) for suit in self.suits
+                         for rank in self.ranks]
+
+      def __len__(self):
+          return len(self._cards)
+
+      def __getitem__(self, position):
+          return self._cards[position]
+
+  deck = FrechDeck()
+  #+end_src
+
+Testing card，Named Tuple can be used to construct simple classes with no methods
+
+#+begin_src python :session card :results value
+  beer_card = Card('7', 'diamonds')
+  beer_card
+#+end_src
+
+#+RESULTS:
+: Card(rank='7', suit='diamonds')
+
+#+begin_src python :session card :results value
+  deck = FrechDeck()
+  len(deck)
+#+end_src
+
+#+RESULTS:
+: 52
+
+#+begin_src python :session card :results value
+  from random import choice
+  choice(deck), deck[:2]
+#+end_src
+
+#+RESULTS:
+| Card | (rank= K suit= diamonds) | (Card (rank= 2 suit= spades) Card (rank= 3 suit= spades)) |

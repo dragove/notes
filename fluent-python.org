@@ -197,12 +197,11 @@ How does slice work in numpy
 #+begin_src jupyter-python :session localhost :exports both
   import numpy as np
   l = np.arange(1, 10).reshape(3, 3)
-  # TODO why this is different?
-  l[1: 3, 2], type(l).__getitem__(l, (slice(1, 3, None), slice(2, None, None)))
+  l[1: 3, 2], type(l).__getitem__(l, (slice(1, 3, None), 2))
 #+end_src
 
 #+RESULTS:
-| array | ((6 9)) | array | (((6) (9))) |
+| array | ((6 9)) | array | ((6 9)) |
 
 ** Chapter 3 Dictionaries and Sets
 

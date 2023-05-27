@@ -204,5 +204,44 @@ How does slice work in numpy
 | array | ((6 9)) | array | ((6 9)) |
 
 ** Chapter 3 Dictionaries and Sets
+*** Making a dict
+#+begin_src jupyter-python :session localhost :exports both
+  dial_codes = [
+      (880, 'Bangladesh'),
+      (55, 'Brazil')
+  ]
+  cd = {country: code for code, country in dial_codes}
+  cd
+#+end_src
+
+#+RESULTS:
+| Bangladesh | : | 880 | Brazil | : | 55 |
+|            |   |     |        |   |    |
+*** Mapping unpacking and merging
+#+begin_src jupyter-python :session localhost :exports both
+  sample = {'name': 'dove', 'age': 6}
+  sample2 = {'cool': True}
+  with_unpack = {'goo': 'yeah!', **sample}
+  merged = sample | sample2
+  with_unpack, merged
+#+end_src
+
+#+RESULTS:
+| goo  | : | yeah! | name | : | dove | age  | : |    6 |
+| name | : | dove  | age  | : |    6 | cool | : | True |
+*** Using defaultdict to handle missing key
+#+begin_src jupyter-python :session localhost :exports both
+  from collections import defaultdict
+  d = defaultdict(list)
+  d[3] = 5
+  d[2].append(3)
+  d[2], d[3]
+#+end_src
+
+#+RESULTS:
+| (3) | 5 |
+
+* Chapter 4 Unicode Text Versus Bytes
+
 
 

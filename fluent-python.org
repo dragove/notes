@@ -241,7 +241,33 @@ How does slice work in numpy
 #+RESULTS:
 | (3) | 5 |
 
-* Chapter 4 Unicode Text Versus Bytes
+** Chapter 4 Unicode Text Versus Bytes
+*** Use unicode
+#+begin_src jupyter-python :session localhost :exports both
+  s = '我们'
+  # string can be converted to bytes and vice versa
+  s.encode('utf8').decode('utf8')
+  
+#+end_src
 
+#+RESULTS:
+: 我们
+*** Skip Chapter 4
+* Part II Functions as Objects
+** Chapter 7 Functions as First-Class Objects
+#+begin_src jupyter-python :session localhost :exports both
+  def factorial(n):
+      return 1 if n < 2 else n * factorial(n - 1)
 
+  factorial(5), factorial.__doc__, type(factorial)
+#+end_src
 
+#+RESULTS:
+| 120 | hline | function |
+#+begin_src jupyter-python :session localhost :exports both
+  fact = factorial
+  type(fact), list(map(fact, range(5)))
+#+end_src
+
+#+RESULTS:
+| function | (1 1 2 6 24) |

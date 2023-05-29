@@ -271,3 +271,27 @@ How does slice work in numpy
 
 #+RESULTS:
 | function | (1 1 2 6 24) |
+*** High-Order Functions
+#+begin_src jupyter-python :session localhost :exports both
+  fruits = ['banana', 'dove', 'yue', 'rong', 'I', 'quatumn']
+  sorted(fruits, key=len), sorted(fruits, key=lambda word: word[::-1])
+#+end_src
+
+#+RESULTS:
+| I | yue    | dove | rong | banana | quatumn |
+| I | banana | yue  | dove | rong   | quatumn |
+
+#+begin_src jupyter-python :session localhost :exports both
+  from types import FunctionType
+  class MyCallable:
+      def __call__(self):
+          return "hihihi"
+
+  c = MyCallable()
+  # c is function-like object
+  c(), isinstance(c, FunctionType), callable(c)
+#+end_src
+
+#+RESULTS:
+| hihihi | False | True |
+

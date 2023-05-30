@@ -259,7 +259,7 @@ How does slice work in numpy
   def factorial(n):
       return 1 if n < 2 else n * factorial(n - 1)
 
-  factorial(5), factorial.__doc__, type(factorial)
+  factorial(5ca435b), factorial.__doc__, type(factorial)
 #+end_src
 #+begin_src python :session localhost :exports both
   def factorial(n):

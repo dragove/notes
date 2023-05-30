@@ -301,4 +301,38 @@ How does slice work in numpy
 
 #+RESULTS:
 | hihihi | False | True |
+** Chapter 9 Decorators and Closures
+*** Single Dispatch Generic Functions
+#+begin_src python :session localhost :exports both
+  import html
+  def htmlize(obj):
+      content = html.escape(repr(obj))
+      return f'<pre>{content}</pre>'
 
+  htmlize({1, 2, 3})
+#+end_src
+
+#+RESULTS:
+: <pre>{1, 2, 3}</pre>
+
+#+begin_src python :session localhost :exports both
+  from functools import singledispatch
+  from collections import abc
+  import fractions
+  import decimal
+  import html
+  import numbers
+
+  def htmlize(obj: object) -> str:
+      content = html.escape(repr(obj))
+      return f'<pre>{content}</pre>'
+
+  @htmlize.register
+  def _(text: str) -> str:
+      content = html.escape(text).replace('\n', '<br />\n')
+      return f'<p>{content}</p>'
+
+  htmlize('hi')
+#+end_src
+
+#+RESULTS:

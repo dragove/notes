@@ -1,8 +1,25 @@
 #+title: SICP
+#+author: dragove
 
-* Test
-#+begin_src scheme :scheme chez
-  (define x 2)
-  (newline)
+* Building Abstractions With Procedure
+** The Elements of Programming
+*** Expression
+#+begin_src scheme :session
+(+ 100 200)
+(- 300 123)
+(* 1.2 1.2)
+(/ 1 3)
 #+end_src
+
+#+RESULTS:
+: 1/3
+*** Naming and the Environment
+#+begin_src scheme :session
+(define pi 3.14159)
+(define radius 10)
+(* pi (* radius radius))
+#+end_src
+
+#+RESULTS:
+: 314.159
 
